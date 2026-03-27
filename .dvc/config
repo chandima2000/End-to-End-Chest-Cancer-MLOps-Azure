@@ -1,0 +1,5 @@
+[core]
+    remote = cancer_data_remote_azure_blob_storage
+['remote "cancer_data_remote_azure_blob_storage"']
+    url = azure://lung-cancer-dataset/chest-cancer-data
+    account_name = lungcancerdlmo4827817011
