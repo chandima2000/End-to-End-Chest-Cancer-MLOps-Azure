@@ -54,7 +54,7 @@ def load_json(path: Path) -> ConfigBox:
     with open(path) as f:
         content = json.load(f)
 
-    logger.info(f"json file loaded succesfully from: {path}")
+    logger.info(f"json file loaded successfully from: {path}")
     return ConfigBox(content)
 
 
@@ -82,13 +82,14 @@ def get_size(path: Path) -> str:
     return f"~ {size_in_kb} KB"
 
 
-def decodeImage(imgstring, fileName):
-    imgdata = base64.b64decode(imgstring)
+def decodeImage(imgString, fileName):
+    imgData = base64.b64decode(imgString)
     with open(fileName, 'wb') as f:
-        f.write(imgdata)
+        f.write(imgData)
         f.close()
 
 
 def encodeImageIntoBase64(croppedImagePath):
     with open(croppedImagePath, "rb") as f:
         return base64.b64encode(f.read())
+
