@@ -1,10 +1,7 @@
 tensorflow
 pandas 
-gdown
 dvc
 dvc-azure
-mlflow
-notebook
 numpy
 matplotlib
 seaborn
