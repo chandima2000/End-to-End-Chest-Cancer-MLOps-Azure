@@ -14,17 +14,20 @@ import base64
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
-    
     try:
+        # Resolve absolute path
+        path_to_yaml = Path(path_to_yaml).resolve()
         with open(path_to_yaml) as yaml_file:
             content = yaml.safe_load(yaml_file)
             logger.info(f"yaml file: {path_to_yaml} loaded successfully")
             return ConfigBox(content)
     except BoxValueError:
         raise ValueError("yaml file is empty")
+    except FileNotFoundError:
+        logger.error(f"File not found: {path_to_yaml}")
+        raise FileNotFoundError(f"The file {path_to_yaml} does not exist.")
     except Exception as e:
         raise e
-    
 
 
 @ensure_annotations

@@ -1,0 +1,8 @@
+stages:
+  data_ingestion:
+    cmd: python src/main.py
+    deps:
+      - src/cnnClassifier/pipeline/data_ingestion.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_ingestion/chest_ct_scan_images
